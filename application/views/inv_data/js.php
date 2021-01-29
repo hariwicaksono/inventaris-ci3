@@ -15,8 +15,8 @@ $('#myboxwidget').on('click', function(event) {
 <!-- / Show hide add new data box widget -->
 
 <!-- Jquery Validate -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>
+	<script src="<?php echo base_url('assets/plugins/jquery-validate/jquery.validate.min.js'); ?>"></script>
+	<script src="<?php echo base_url('assets/plugins/jquery-validate/additional-methods.min.js'); ?>"></script>
 <!-- / Jquery Validate -->
 
 <!-- Jquery-steps -->
