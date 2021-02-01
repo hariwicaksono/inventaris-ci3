@@ -59,7 +59,7 @@
 					
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<?php if (empty($user_photo)) { ?>
-							
+							<img src="<?php echo base_url('assets/uploads/images/profile/no_picture.png'); ?>" class="user-image" alt="User Image">
 							<?php } else { ?>
 								<img src="<?php echo base_url('assets/uploads/images/profile/'.$user_photo->thumbnail); ?>" class="user-image" alt="User Image">
 							<?php }?>
@@ -69,7 +69,7 @@
 							<!-- User image -->
 							<li class="user-header">
 							<?php if (empty($user_photo)) { ?>
-
+								<img src="<?php echo base_url('assets/uploads/images/profile/no_picture.png'); ?>" class="img-circle" alt="User Image">
 								<?php } else { ?>
 								<img src="<?php echo base_url('assets/uploads/images/profile/'.$user_photo->photo); ?>" class="img-circle" alt="User Image">
 								<?php }?>

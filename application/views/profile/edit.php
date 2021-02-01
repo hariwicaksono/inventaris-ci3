@@ -87,7 +87,7 @@
 									<div class="col-sm-9">
 										<input type="file" name="user_photo" id="user_photo" class="form-control">
 										<?php if (empty($user_photo)) { ?>
-
+											<img src="<?php echo base_url('assets/uploads/images/profile/no_picture.png'); ?>" alt="Current User Photo" class="img img-thumbnail form-control-static">
 											<?php } else { ?>
 										<img src="<?php echo base_url('assets/uploads/images/profile/'.$user_photo->photo); ?>" alt="Current User Photo" class="img img-thumbnail form-control-static">
 										<?php }?>

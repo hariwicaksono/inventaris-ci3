@@ -36,6 +36,7 @@
 									<!-- <label for="photo" class="control-label col-sm-3">Photo</label> -->
 									<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
 									<?php if (empty($user_photo)) { ?>
+										<img src="<?php echo base_url('assets/uploads/images/profile/no_picture.png'); ?>" alt="User Photo" class="img img-thumbnail form-control-static">
 
 										<?php } else { ?>
 										<img src="<?php echo base_url('assets/uploads/images/profile/'.$user_photo->photo); ?>" alt="User Photo" class="img img-thumbnail form-control-static">
