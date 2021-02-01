@@ -56,14 +56,23 @@
 					?>
 					<!-- User Menu -->
 					<li class="dropdown user user-menu">
+					
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<img src="<?php echo base_url('assets/uploads/images/profile/'.$user_photo->thumbnail); ?>" class="user-image" alt="User Image">
+						<?php if (empty($user_photo)) { ?>
+							
+							<?php } else { ?>
+								<img src="<?php echo base_url('assets/uploads/images/profile/'.$user_photo->thumbnail); ?>" class="user-image" alt="User Image">
+							<?php }?>
 							<span class="hidden-xs"><?php echo $loggedinuser->first_name . " " . $loggedinuser->last_name; ?></span>
 						</a>
 						<ul class="dropdown-menu">
 							<!-- User image -->
 							<li class="user-header">
+							<?php if (empty($user_photo)) { ?>
+
+								<?php } else { ?>
 								<img src="<?php echo base_url('assets/uploads/images/profile/'.$user_photo->photo); ?>" class="img-circle" alt="User Image">
+								<?php }?>
 								<p>
 									<?php echo $loggedinuser->first_name . " " . $loggedinuser->last_name ?>
 									<small>Member since <?php echo date('M Y', $loggedinuser->created_on); ?></small>

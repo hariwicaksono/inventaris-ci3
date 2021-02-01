@@ -86,7 +86,11 @@
 									<label for="photo" class="control-label col-sm-3">Photo</label>
 									<div class="col-sm-9">
 										<input type="file" name="user_photo" id="user_photo" class="form-control">
+										<?php if (empty($user_photo)) { ?>
+
+											<?php } else { ?>
 										<img src="<?php echo base_url('assets/uploads/images/profile/'.$user_photo->photo); ?>" alt="Current User Photo" class="img img-thumbnail form-control-static">
+										<?php }?>
 									</div>
 								</div>
 							</div>
