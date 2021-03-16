@@ -157,7 +157,7 @@
                 <tbody>
                   <?php foreach ($status_logs->result() as $status_log): ?>
                     <tr>
-                      <td class="col-lg-4"><?php echo $status_log->created_on ?></td>
+                      <td class="col-lg-4"><?php echo $status_log->updated_on ?></td>
                       <td><?php echo $status_log->status_name ?></td>
                       <td><?php echo $status_log->first_name. " " . $status_log->last_name ?></td>
                     </tr>
@@ -178,7 +178,7 @@
                 <tbody>
                   <?php foreach ($location_logs->result() as $location_log): ?>
                     <tr>
-                      <td class="col-lg-4"><?php echo $location_log->created_on ?></td>
+                      <td class="col-lg-4"><?php echo $location_log->updated_on ?></td>
                       <td><?php echo $location_log->location_name ?></td>
                       <td><?php echo $location_log->first_name. " " . $location_log->last_name ?></td>
                     </tr>

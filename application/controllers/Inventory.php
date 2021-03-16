@@ -372,11 +372,11 @@ class Inventory extends CI_Controller {
 					// set variables for keyword and filters
 					$keyword  = $this->input->post('keyword');
 					$category = (!empty($this->input->post('category'))) ?
-					implode($this->input->post('category'), ",") : "";
+					implode(",", $this->input->post('category')) : "";
 					$location = (!empty($this->input->post('location'))) ?
-					implode($this->input->post('location'), ",") : "";
+					implode(",", $this->input->post('location')) : "";
 					$status   = (!empty($this->input->post('status'))) ?
-					implode($this->input->post('status'), ",") : "";
+					implode( ",", $this->input->post('status')) : "";
 					$filters  = array(
 						'category_id' => $category,
 						'location_id' => $location,
@@ -736,8 +736,20 @@ class Inventory extends CI_Controller {
 						'description'      => $this->input->post('description')
 					);
 
+					// logging array
+					$data_location_log = array(
+						//'code'        => $this->input->post('code'),
+						'location_id' => $this->input->post('location'),
+					);
+					$data_status_log = array(
+						//'code'      => $this->input->post('code'),
+						'status_id' => $this->input->post('status2'),
+					);
+
 					// check to see if we are updating the data
 					if ($this->inventory_model->update_inventory_by_code($code, $data)) {
+						$this->logs_model->update_location_log($code, $data_location_log);
+						$this->logs_model->update_status_log($code, $data_status_log);
 						// Set message
 						$this->session->set_flashdata('message',
 							$this->config->item('message_start_delimiter', 'ion_auth')
@@ -792,7 +804,7 @@ class Inventory extends CI_Controller {
 								}
 							}
 						}
-
+ 
 					}
 					else {
 						$this->session->set_flashdata('message',

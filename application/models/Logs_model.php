@@ -31,11 +31,33 @@ class Logs_model extends CI_Model
 	{
 		// user and datetime
 		$datas['created_by'] = $this->loggedinuser->username;
-		$datas['updated_by'] = $this->loggedinuser->username;
+		//$datas['updated_by'] = $this->loggedinuser->username;
 		$this->db->set('created_on', 'NOW()', FALSE);
-		$this->db->set('updated_on', 'NOW()', FALSE);
+		//$this->db->set('updated_on', 'NOW()', FALSE);
 
 			if ($this->db->insert($this->locations_log_table, $datas)) {
+			return TRUE;
+		}
+		return FALSE;
+	}
+
+	/**
+	*	Update location log
+	*
+	*	@param 		array 		$datas
+	*	@return 	bool
+	*
+	*/
+	public function update_location_log($code, $datas)
+	{
+		// user and datetime
+		//$datas['created_by'] = $this->loggedinuser->username;
+		$datas['updated_by'] = $this->loggedinuser->username;
+		//$this->db->set('created_on', 'NOW()', FALSE);
+		$this->db->set('updated_on', 'NOW()', FALSE);
+
+		$this->db->where('code', $code);
+			if ($this->db->update($this->locations_log_table, $datas)) {
 			return TRUE;
 		}
 		return FALSE;
@@ -56,6 +78,7 @@ class Logs_model extends CI_Model
 			$this->locations_log_table.".location_id, ".
 			$this->locations_table.".name AS location_name, ".
 			$this->locations_log_table.".created_on, ".
+			$this->locations_log_table.".updated_on, ".
 			$this->users_table.".username, ".
 			$this->users_table.".first_name, ".
 			$this->users_table.".last_name"
@@ -112,6 +135,28 @@ class Logs_model extends CI_Model
 	}
 
 	/**
+	*	Update status log
+	*
+	*	@param 		array 		$datas
+	*	@return 	bool
+	*
+	*/
+	public function update_status_log($code, $datas)
+	{
+		// user and datetime
+		//$datas['created_by'] = $this->loggedinuser->username;
+		$datas['updated_by'] = $this->loggedinuser->username;
+		//$this->db->set('created_on', 'NOW()', FALSE);
+		$this->db->set('updated_on', 'NOW()', FALSE);
+
+		$this->db->where('code', $code);
+		if ($this->db->update($this->status_log_table, $datas)) {
+			return TRUE;
+		}
+		return FALSE;
+	}
+
+	/**
 	*	Get status log based on inventory code
 	*
 	*	@param 		string 		$code
@@ -126,6 +171,7 @@ class Logs_model extends CI_Model
 			$this->status_log_table.".status_id, ".
 			$this->status_table.".name AS status_name, ".
 			$this->status_log_table.".created_on, ".
+			$this->status_log_table.".updated_on, ".
 			$this->users_table.".username, ".
 			$this->users_table.".first_name, ".
 			$this->users_table.".last_name"
