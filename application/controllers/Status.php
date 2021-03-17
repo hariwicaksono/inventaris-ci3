@@ -67,7 +67,7 @@ class Status extends CI_Controller {
 
 			// set the flash data error message if there is one
 			$this->data['message']   = (validation_errors()) ? validation_errors() :
-			$this->session->flashdata('message');
+			$this->session->flashdata('error');
 
 			$this->load->view('partials/_alte_header', $this->data);
 			$this->load->view('partials/_alte_menu');
@@ -113,14 +113,14 @@ class Status extends CI_Controller {
 
 					// check to see if we are inserting the data
 					if ($this->status_model->insert_status($data)) {
-						$this->session->set_flashdata('message',
+						$this->session->set_flashdata('success',
 							$this->config->item('success_start_delimiter', 'ion_auth')
 							."Status Saved Successfully!".
 							$this->config->item('success_end_delimiter', 'ion_auth')
 						);
 					}
 					else {
-						$this->session->set_flashdata('message',
+						$this->session->set_flashdata('error',
 							$this->config->item('error_start_delimiter', 'ion_auth')
 							."Status Saving Failed!".
 							$this->config->item('error_end_delimiter', 'ion_auth')
@@ -149,7 +149,7 @@ class Status extends CI_Controller {
 
 			// set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() :
-			$this->session->flashdata('message');
+			$this->session->flashdata('error');
 
 			$this->load->view('partials/_alte_header', $this->data);
 			$this->load->view('partials/_alte_menu');
@@ -216,14 +216,14 @@ class Status extends CI_Controller {
 
 					// check to see if we are updating the data
 					if ($this->status_model->update_status($id, $data)) {
-						$this->session->set_flashdata('message',
+						$this->session->set_flashdata('success',
 							$this->config->item('success_start_delimiter', 'ion_auth')
 							."Status Updated!".
 							$this->config->item('success_end_delimiter', 'ion_auth')
 						);
 					}
 					else {
-						$this->session->set_flashdata('message',
+						$this->session->set_flashdata('error',
 							$this->config->item('error_start_delimiter', 'ion_auth')
 							."Status Update Failed!".
 							$this->config->item('error_end_delimiter', 'ion_auth')
@@ -238,7 +238,7 @@ class Status extends CI_Controller {
 
 			// set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() :
-			$this->session->flashdata('message');
+			$this->session->flashdata('error');
 
 			$this->load->view('partials/_alte_header', $this->data);
 			$this->load->view('partials/_alte_menu');
@@ -283,14 +283,14 @@ class Status extends CI_Controller {
 
 					// check to see if we are updating the data
 					if ($this->status_model->update_status($id, $data)) {
-						$this->session->set_flashdata('message',
+						$this->session->set_flashdata('success',
 							$this->config->item('success_start_delimiter', 'ion_auth')
 							."Status Deleted!".
 							$this->config->item('success_end_delimiter', 'ion_auth')
 						);
 					}
 					else {
-						$this->session->set_flashdata('message',
+						$this->session->set_flashdata('error',
 							$this->config->item('error_start_delimiter', 'ion_auth')
 							."Status Delete Failed!".
 							$this->config->item('error_end_delimiter', 'ion_auth')
@@ -300,7 +300,7 @@ class Status extends CI_Controller {
 			}
 			// set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() :
-			$this->session->flashdata('message');
+			$this->session->flashdata('error');
 
 			// Always redirect no matter what!
 			redirect('status', 'refresh');

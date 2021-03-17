@@ -52,7 +52,7 @@ class Inventory extends CI_Controller {
 		// Logged in
 		else{
 			// set the flash data error message if there is one
-			$this->data['message']    = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+			$this->data['message']    = (validation_errors()) ? validation_errors() : $this->session->flashdata('error');
 			$this->data['cat_list']   = $this->categories_model->get_categories('','','','asc');
 			$this->data['stat_list']  = $this->status_model->get_status('','','','asc');
 			$this->data['loc_list']   = $this->locations_model->get_locations('','','','asc');
@@ -108,7 +108,7 @@ class Inventory extends CI_Controller {
 
 			// set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() :
-			$this->session->flashdata('message');
+			$this->session->flashdata('error');
 
 			$this->load->view('partials/_alte_header', $this->data);
 			$this->load->view('partials/_alte_menu');
@@ -177,7 +177,7 @@ class Inventory extends CI_Controller {
 
 				// set the flash data error message if there is one
 				$this->data['message'] = (validation_errors()) ? validation_errors()
-				: $this->session->flashdata('message');
+				: $this->session->flashdata('error');
 
 				$this->load->view('partials/_alte_header', $this->data);
 				$this->load->view('partials/_alte_menu');
@@ -193,7 +193,7 @@ class Inventory extends CI_Controller {
 
 				// set the flash data error message if there is one
 				$this->data['message'] = (validation_errors()) ? validation_errors()
-				: $this->session->flashdata('message');
+				: $this->session->flashdata('error');
 
 				$this->load->view('partials/_alte_header', $this->data);
 				$this->load->view('partials/_alte_menu');
@@ -262,7 +262,7 @@ class Inventory extends CI_Controller {
 
 				// set the flash data error message if there is one
 				$this->data['message'] = (validation_errors()) ? validation_errors()
-				: $this->session->flashdata('message');
+				: $this->session->flashdata('error');
 
 				$this->load->view('partials/_alte_header', $this->data);
 				$this->load->view('partials/_alte_menu');
@@ -278,7 +278,7 @@ class Inventory extends CI_Controller {
 
 				// set the flash data error message if there is one
 				$this->data['message'] = (validation_errors()) ? validation_errors()
-				: $this->session->flashdata('message');
+				: $this->session->flashdata('error');
 
 				$this->load->view('partials/_alte_header', $this->data);
 				$this->load->view('partials/_alte_menu');
@@ -324,7 +324,7 @@ class Inventory extends CI_Controller {
 
 				// set the flash data error message if there is one
 				$this->data['message'] = (validation_errors()) ? validation_errors()
-				: $this->session->flashdata('message');
+				: $this->session->flashdata('error');
 
 				$this->load->view('partials/_alte_header', $this->data);
 				$this->load->view('partials/_alte_menu');
@@ -387,7 +387,7 @@ class Inventory extends CI_Controller {
 						$filters
 					);
 
-					$this->session->set_flashdata('message',
+					$this->session->set_flashdata('success',
 						$this->config->item('success_start_delimiter', 'ion_auth')
 						."Search results with keyword '$keyword'".
 						$this->config->item('success_end_delimiter', 'ion_auth')
@@ -396,7 +396,7 @@ class Inventory extends CI_Controller {
 			}
 			// set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() :
-			$this->session->flashdata('message');
+			$this->session->flashdata('error');
 
 			$this->load->view('partials/_alte_header', $this->data);
 			$this->load->view('partials/_alte_menu');
@@ -496,7 +496,7 @@ class Inventory extends CI_Controller {
 						$this->logs_model->insert_status_log($data_status_log);
 
 						// Set message
-						$this->session->set_flashdata('message',
+						$this->session->set_flashdata('success',
 							$this->config->item('message_start_delimiter', 'ion_auth')
 							."Data Saved Successfully!".
 							$this->config->item('message_end_delimiter', 'ion_auth')
@@ -515,7 +515,7 @@ class Inventory extends CI_Controller {
 							// fail to upload
 							if ( ! $this->upload->do_upload('photo')) {
 								// Error upload
-								$this->session->set_flashdata('message',
+								$this->session->set_flashdata('success',
 									$this->config->item('success_start_delimiter', 'ion_auth')
 									."Location Saved Successfully!<br>Failed to upload the photo!".
 									$this->config->item('success_end_delimiter', 'ion_auth')
@@ -546,7 +546,7 @@ class Inventory extends CI_Controller {
 					}
 					else {
 						// Set message
-						$this->session->set_flashdata('message',
+						$this->session->set_flashdata('error',
 							$this->config->item('error_start_delimiter', 'ion_auth')
 							."Data Saving Failed!".
 							$this->config->item('error_end_delimiter', 'ion_auth')
@@ -559,7 +559,7 @@ class Inventory extends CI_Controller {
 				else {
 					// set the flash data error message if there is one
 					$this->data['message']   = (validation_errors()) ? validation_errors() :
-					$this->session->flashdata('message');
+					$this->session->flashdata('error');
 
 					$this->data['cat_list']  = $this->categories_model->get_categories('','','','asc');
 					$this->data['stat_list'] = $this->status_model->get_status('','','','asc');
@@ -580,7 +580,7 @@ class Inventory extends CI_Controller {
 				// $this->data['data_list'] = $this->categories_model->get_categories();
 				// set the flash data error message if there is one
 				$this->data['message']   = (validation_errors()) ? validation_errors() :
-				$this->session->flashdata('message');
+				$this->session->flashdata('error');
 
 				$this->data['cat_list']  = $this->categories_model->get_categories('','','','asc');
 				$this->data['stat_list'] = $this->status_model->get_status('','','','asc');
@@ -751,7 +751,7 @@ class Inventory extends CI_Controller {
 						$this->logs_model->update_location_log($code, $data_location_log);
 						$this->logs_model->update_status_log($code, $data_status_log);
 						// Set message
-						$this->session->set_flashdata('message',
+						$this->session->set_flashdata('success',
 							$this->config->item('message_start_delimiter', 'ion_auth')
 							."Inventory Updated!".
 							$this->config->item('message_end_delimiter', 'ion_auth')
@@ -770,7 +770,7 @@ class Inventory extends CI_Controller {
 							// fail to upload
 							if ( ! $this->upload->do_upload('photo')) {
 								// Error upload
-								$this->session->set_flashdata('message',
+								$this->session->set_flashdata('success',
 									$this->config->item('success_start_delimiter', 'ion_auth')
 									."Location Saved Successfully!<br>Failed to upload the photo!".
 									$this->config->item('success_end_delimiter', 'ion_auth')
@@ -807,10 +807,10 @@ class Inventory extends CI_Controller {
  
 					}
 					else {
-						$this->session->set_flashdata('message',
-							$this->config->item('error_start_delimiter', 'ion_auth')
-							."Inventory Update Failed!".
-							$this->config->item('error_end_delimiter', 'ion_auth')
+						$this->session->set_flashdata('error',
+							//$this->config->item('error_start_delimiter', 'ion_auth')
+							"<h5>Inventory Update Failed!</h5>"
+							//$this->config->item('error_end_delimiter', 'ion_auth')
 						);
 					}
 					redirect('inventory/all', 'refresh');
@@ -827,7 +827,7 @@ class Inventory extends CI_Controller {
 
 			// set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() :
-			$this->session->flashdata('message');
+			$this->session->flashdata('error');
 
 			$this->load->view('partials/_alte_header', $this->data);
 			$this->load->view('partials/_alte_menu');
@@ -860,7 +860,7 @@ class Inventory extends CI_Controller {
 		{
 			// set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() :
-			$this->session->flashdata('message');
+			$this->session->flashdata('error');
 
 			// check if there's valid input
 			if (isset($_POST) && !empty($_POST)) {
@@ -876,14 +876,14 @@ class Inventory extends CI_Controller {
 
 					// check to see if we are updating the data
 					if ($this->inventory_model->update_inventory_by_code($code, $data)) {
-						$this->session->set_flashdata('message',
+						$this->session->set_flashdata('success',
 							$this->config->item('message_start_delimiter', 'ion_auth')
 							."Inventory Deleted!".
 							$this->config->item('message_end_delimiter', 'ion_auth')
 						);
 					}
 					else {
-						$this->session->set_flashdata('message',
+						$this->session->set_flashdata('error',
 							$this->config->item('error_start_delimiter', 'ion_auth')
 							."Inventory Delete Failed!".
 							$this->config->item('error_end_delimiter', 'ion_auth')

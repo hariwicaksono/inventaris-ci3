@@ -27,7 +27,7 @@
 					</div>
 				</div>
 				<div class="box-body">
-					<?php echo $message;?>
+				<span style="color: red"><?php echo $message;?></span>
 
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<form action="<?php echo base_url('status/edit/').$id ?>" method="post" autocomplete="off" class="form form-horizontal">

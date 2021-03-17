@@ -42,5 +42,25 @@
 <script src="<?php echo base_url('assets/templates/adminlte-2-3-11/dist/js/app.min.js'); ?>"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url('assets/templates/adminlte-2-3-11/dist/js/demo.js'); ?>"></script>
+<script>
+  const Toast = Swal.mixin({
+      toast: true,
+      position: 'top',
+      showConfirmButton: true,
+      timer: 5000
+    });
+    <?php if ($message = $this->session->flashdata('success')) { ?>
+    Toast.fire({
+            icon: 'success',
+            title: '<?php echo $message ?>.'
+          })
+    <?php } ?>
+    <?php if ($message = $this->session->flashdata('error')) { ?>
+    Toast.fire({
+            icon: 'error',
+            title: '<?php echo $message ?>.'
+          })
+    <?php } ?>
+    </script>
 </body>
 </html>

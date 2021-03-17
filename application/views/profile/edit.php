@@ -29,7 +29,7 @@
 						</div>
 					</div>
 					<div class="box-body">
-						<?php echo $message;?>
+					<span style="color: red"><?php echo $message;?></span>
 						<?php $myprofile = $this->ion_auth->user()->row(); ?>
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">

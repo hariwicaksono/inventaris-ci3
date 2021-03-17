@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="box-body">
-                    <?php echo $message;?>
+                <span style="color: red"><?php echo $message;?></span>
 
                     <?php echo form_open('auth/reset_password/' . $code, array('class' => 'form form-horizontal', 'autocomplete' => 'off'));?>
 						<div class="form-group">

@@ -29,14 +29,20 @@
 				</div>
 				<div class="box-body show" id="add_new">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						<?php echo $message;?>
+					<span style="color: red"><?php echo $message;?></span>
 						<form id="input_form" action="<?php echo base_url('inventory/add') ?>" method="post" autocomplete="off" class="form form-horizontal" enctype="multipart/form-data">
 								<h3>Basic Info</h3>
 								<fieldset>
+								<?php $query = $this->db->query("select max(code) as last from inv_datas");
+								$data=$query->row_array();
+								$last = $data['last'];
+								$nextNoUrut = $last + 1;
+
+								$id = sprintf('%s', $nextNoUrut);?>
 									<div class="form-group">
 										<label for="code" class="control-label col-md-2">* Code</label>
 										<div class="col-md-4">
-											<input type="text" name="code" id="code" class="form-control required" required>
+											<input type="text" name="code" id="code" class="form-control required" value="<?=$id?>" required>
 										</div>
 									</div>
 									<div class="form-group">

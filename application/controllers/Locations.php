@@ -67,7 +67,7 @@ class Locations extends CI_Controller {
 
 			// set the flash data error message if there is one
 			$this->data['message']   = (validation_errors()) ? validation_errors() :
-			$this->session->flashdata('message');
+			$this->session->flashdata('error');
 
 			$this->load->view('partials/_alte_header', $this->data);
 			$this->load->view('partials/_alte_menu');
@@ -114,7 +114,7 @@ class Locations extends CI_Controller {
 					// check to see if we are inserting the data
 					if ($this->locations_model->insert_location($data)) {
 						// Success message
-						$this->session->set_flashdata('message',
+						$this->session->set_flashdata('success',
 							$this->config->item('success_start_delimiter', 'ion_auth')
 							."Location Saved Successfully!".
 							$this->config->item('success_end_delimiter', 'ion_auth')
@@ -133,7 +133,7 @@ class Locations extends CI_Controller {
 							// fail to upload
 							if ( ! $this->upload->do_upload('photo')) {
 								// Error upload
-								$this->session->set_flashdata('message',
+								$this->session->set_flashdata('success',
 									$this->config->item('success_start_delimiter', 'ion_auth')
 									."Location Saved Successfully!<br>Failed to upload the photo!".
 									$this->config->item('success_end_delimiter', 'ion_auth')
@@ -164,7 +164,7 @@ class Locations extends CI_Controller {
 					}
 					else {
 						// Error message
-						$this->session->set_flashdata('message',
+						$this->session->set_flashdata('error',
 							$this->config->item('error_start_delimiter', 'ion_auth')
 							."Location Saving Failed!".
 							$this->config->item('error_end_delimiter', 'ion_auth')
@@ -284,7 +284,7 @@ class Locations extends CI_Controller {
 
 					// check to see if we are updating the data
 					if ($this->locations_model->update_location($id, $data)) {
-						$this->session->set_flashdata('message',
+						$this->session->set_flashdata('success',
 							$this->config->item('success_start_delimiter', 'ion_auth')
 							."Location Updated!".
 							$this->config->item('success_end_delimiter', 'ion_auth')
@@ -303,7 +303,7 @@ class Locations extends CI_Controller {
 							// fail to upload
 							if ( ! $this->upload->do_upload('photo')) {
 								// Error upload
-								$this->session->set_flashdata('message',
+								$this->session->set_flashdata('success',
 									$this->config->item('success_start_delimiter', 'ion_auth')
 									."Location Saved Successfully!<br>Failed to upload the photo!".
 									$this->config->item('success_end_delimiter', 'ion_auth')
@@ -340,7 +340,7 @@ class Locations extends CI_Controller {
 
 					}
 					else {
-						$this->session->set_flashdata('message',
+						$this->session->set_flashdata('error',
 							$this->config->item('error_start_delimiter', 'ion_auth')
 							."Location Update Failed!".
 							$this->config->item('error_end_delimiter', 'ion_auth')
@@ -404,14 +404,14 @@ class Locations extends CI_Controller {
 
 					// check to see if we are updating the data
 					if ($this->locations_model->update_location($id, $data)) {
-						$this->session->set_flashdata('message',
+						$this->session->set_flashdata('success',
 							$this->config->item('success_start_delimiter', 'ion_auth')
 							."Location Deleted!".
 							$this->config->item('success_end_delimiter', 'ion_auth')
 						);
 					}
 					else {
-						$this->session->set_flashdata('message',
+						$this->session->set_flashdata('error',
 							$this->config->item('error_start_delimiter', 'ion_auth')
 							."Location Delete Failed!".
 							$this->config->item('error_end_delimiter', 'ion_auth')

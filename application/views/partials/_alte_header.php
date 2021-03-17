@@ -7,6 +7,7 @@
 	<title><?php echo $this->config->item('site_name'); ?></title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<link rel="shortcut icon" href="<?php echo base_url('assets/favicon.png'); ?>" type="image/x-icon"><!-- X -->
 	<!-- Bootstrap 3.3.6 -->
 	<link rel="stylesheet" href="<?php echo base_url('assets/templates/adminlte-2-3-11/bootstrap/css/bootstrap.min.css'); ?>">
 	<!-- Font Awesome -->
@@ -18,6 +19,8 @@
 	<!-- AdminLTE Skins. Choose a skin from the css/skins
 			 folder instead of downloading all of them to reduce the load. -->
 	<link rel="stylesheet" href="<?php echo base_url('assets/templates/adminlte-2-3-11/dist/css/skins/_all-skins.min.css'); ?>">
+	<link rel="stylesheet" href="<?php echo base_url('/assets/plugins/sweetalert2/sweetalert2.min.css') ?>">
+	<script src="<?php echo base_url('/assets/plugins/sweetalert2/sweetalert2.all.min.js')?>"></script>
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

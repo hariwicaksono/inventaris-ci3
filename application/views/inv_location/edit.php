@@ -29,7 +29,7 @@
 				<div class="box-body">
 
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						<?php echo $message;?>
+					<span style="color: red"><?php echo $message;?></span>
 						<form action="<?php echo base_url('locations/edit/').$id ?>" method="post" autocomplete="off" class="form form-horizontal" enctype="multipart/form-data">
 							<?php foreach ($data_list->result() as $data){
 								$curr_code      = $data->code;

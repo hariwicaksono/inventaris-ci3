@@ -31,7 +31,7 @@
 					</div>
 				</div>
 				<div class="box-body">
-					<?php echo $message;?>
+				<span style="color: red"><?php echo $message;?></span>
 					<?php echo $category_desc; ?>
 					<hr>
 

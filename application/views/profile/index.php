@@ -27,7 +27,7 @@
 					</div>
 				</div>
 				<div class="box-body">
-					<?php echo $message;?>
+				<span style="color: red"><?php echo $message;?></span>
 					<?php $myprofile = $this->ion_auth->user()->row(); ?>
 					<form action="<?php echo base_url('profile/edit') ?>" method="post" class="form form-horizontal" autocomplete="off">
 						<div class="row">

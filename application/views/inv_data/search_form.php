@@ -16,7 +16,7 @@
 
 		<!-- Main content -->
 		<section class="content">
-			<?php echo $message;?>
+		<span style="color: red"><?php echo $message;?></span>
 
 			<!-- Search Data box -->
 			<div class="box">

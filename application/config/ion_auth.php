@@ -180,9 +180,9 @@ $config['store_salt']  = FALSE;
  | -------------------------------------------------------------------------
  */
 $config['delimiters_source']       = 'config'; 	// "config" = use the settings defined here, "form_validation" = use the settings defined in CI's form validation library
-$config['message_start_delimiter'] = '<div class="alert alert-info"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'; 	// Message start delimiter
-$config['message_end_delimiter']   = '</div>'; 	// Message end delimiter
-$config['error_start_delimiter']   = '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';		// Error message start delimiter
-$config['error_end_delimiter']     = '</div>';	// Error message end delimiter
-$config['success_start_delimiter'] = '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'; 	// Success Message start delimiter
-$config['success_end_delimiter']   = '</div>'; 	// Success Message end delimiter
+$config['message_start_delimiter'] = '<h5>'; 	// Message start delimiter
+$config['message_end_delimiter']   = '</h5>'; 	// Message end delimiter
+$config['error_start_delimiter']   = '<h5>';		// Error message start delimiter
+$config['error_end_delimiter']     = '</h5>';	// Error message end delimiter
+$config['success_start_delimiter'] = '<h5>'; 	// Success Message start delimiter
+$config['success_end_delimiter']   = '</h5>'; 	// Success Message end delimiter

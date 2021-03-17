@@ -49,7 +49,7 @@
 				</div>
 			</div>
 			<div class="box-body">
-        <?php echo $message;?>
+      <span style="color: red"><?php echo $message;?></span>
 
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
         <?php if ($curr_photo!=""): ?>
