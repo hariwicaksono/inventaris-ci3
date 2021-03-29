@@ -45,29 +45,30 @@ class Inventory extends CI_Controller {
 	*/
 	public function index()
 	{
+		$this->all();
 		// Not logged in, redirect to home
-		if (!$this->ion_auth->logged_in()){
+		/*if (!$this->ion_auth->logged_in()){
 			redirect('auth/login/inventory', 'refresh');
-		}
+		}*/
 		// Logged in
-		else{
+		/*else{
 			// set the flash data error message if there is one
 			$this->data['message']    = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 			$this->data['cat_list']   = $this->categories_model->get_categories('','','','asc');
 			$this->data['stat_list']  = $this->status_model->get_status('','','','asc');
 			$this->data['loc_list']   = $this->locations_model->get_locations('','','','asc');
 			$this->data['col_list']   = $this->color_model->get_color('','','','asc');
-			$this->data['brand_list'] = $this->inventory_model->get_brands();
+			$this->data['brand_list'] = $this->inventory_model->get_brands();*/
 
 			// $this->data['last_query'] = $this->db->last_query();
 
-			$this->load->view('partials/_alte_header', $this->data);
+			/*$this->load->view('partials/_alte_header', $this->data);
 			$this->load->view('partials/_alte_menu');
 			$this->load->view('inv_data/index');
 			$this->load->view('partials/_alte_footer');
 			$this->load->view('inv_data/js');
 			$this->load->view('js_script');
-		}
+		}*/
 	}
 	// Index end
 
@@ -497,9 +498,9 @@ class Inventory extends CI_Controller {
 
 						// Set message
 						$this->session->set_flashdata('message',
-							$this->config->item('message_start_delimiter', 'ion_auth')
+							$this->config->item('success_start_delimiter', 'ion_auth')
 							."Data Saved Successfully!".
-							$this->config->item('message_end_delimiter', 'ion_auth')
+							$this->config->item('success_end_delimiter', 'ion_auth')
 						);
 
 						// upload and change inventory photo
@@ -864,7 +865,7 @@ class Inventory extends CI_Controller {
 
 			// check if there's valid input
 			if (isset($_POST) && !empty($_POST)) {
-
+ 
 				// input validation rules
 				$this->form_validation->set_rules('id', 'ID', 'trim|numeric|required');
 
@@ -877,9 +878,9 @@ class Inventory extends CI_Controller {
 					// check to see if we are updating the data
 					if ($this->inventory_model->update_inventory_by_code($code, $data)) {
 						$this->session->set_flashdata('message',
-							$this->config->item('message_start_delimiter', 'ion_auth')
+							$this->config->item('success_start_delimiter', 'ion_auth')
 							."Inventory Deleted!".
-							$this->config->item('message_end_delimiter', 'ion_auth')
+							$this->config->item('success_end_delimiter', 'ion_auth')
 						);
 					}
 					else {

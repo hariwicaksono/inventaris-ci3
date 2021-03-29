@@ -32,7 +32,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('inventory') ?>"><i class="fa fa-plus"></i> Add New</a></li>
+            <li><a href="<?php echo base_url('inventory/add') ?>"><i class="fa fa-plus"></i> Add New</a></li>
             <li><a href="<?php echo base_url('inventory/all') ?>"><i class="fa fa-list-alt"></i> All Data</a></li>
             <li><a href="<?php echo base_url('inventory/by_category') ?>"><i class="fa fa-star-o"></i> By Category</a></li>
             <li><a href="<?php echo base_url('inventory/by_location') ?>"><i class="fa fa-map-pin"></i> By Location</a></li>
