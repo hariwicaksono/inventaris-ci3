@@ -28,7 +28,7 @@
 					</div>
 				</div>
 				<div class="box-body">
-				<span style="color: red"><?php echo $message;?></span>
+					<?php echo $message;?>
 					
 					<?php echo form_open("auth/create_group", array('class' => 'form form-horizontal'));?>
 

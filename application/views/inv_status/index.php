@@ -15,7 +15,7 @@
 
 		<!-- Main content -->
 		<section class="content">
-		<span style="color: red"><?php echo $message;?></span>
+			<?php echo $message;?>
 
 			<!-- Insert New Data box -->
 			<div class="box">

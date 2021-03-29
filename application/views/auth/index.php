@@ -29,7 +29,7 @@
 					</div>
 				</div>
 				<div class="box-body">
-				<span style="color: red"><?php echo $message;?></span>
+					<?php echo $message;?>
 
 					<table class="table table-bordered table-striped">
 						<tr>

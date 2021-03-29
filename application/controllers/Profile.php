@@ -47,7 +47,7 @@ class Profile extends CI_Controller {
 		else
 		{
 			// set the flash data error message if there is one
-			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('error');
+			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 
 
 			$this->load->view('partials/_alte_header', $this->data);
@@ -74,7 +74,7 @@ class Profile extends CI_Controller {
 		else
 		{
 			// set the flash data error message if there is one
-			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('error');
+			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 
 			// input validation rules
 			$this->form_validation->set_rules('first_name', 'First Name', 'trim|required');
@@ -119,7 +119,7 @@ class Profile extends CI_Controller {
 							// fail to upload
 							if ( ! $this->upload->do_upload('user_photo')) {
 								// redirect back
-								$this->session->set_flashdata('error', array('error' => $this->upload->display_errors()));
+								$this->session->set_flashdata('message', array('error' => $this->upload->display_errors()));
 								$this->load->view('partials/_alte_header', $this->data);
 								$this->load->view('partials/_alte_menu');
 								$this->load->view('profile/edit');
@@ -149,11 +149,11 @@ class Profile extends CI_Controller {
 						}
 
 						// redirect them back to the admin page if admin, or to the base url if non admin
-						$this->session->set_flashdata('success', $this->ion_auth->messages());
+						$this->session->set_flashdata('message', $this->ion_auth->messages());
 					}
 					else {
 						// redirect them back to the admin page if admin, or to the base url if non admin
-						$this->session->set_flashdata('error', $this->ion_auth->errors());
+						$this->session->set_flashdata('message', $this->ion_auth->errors());
 					}
 					redirect('profile', 'refresh');
 				}

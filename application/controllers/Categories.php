@@ -67,7 +67,7 @@ class Categories extends CI_Controller {
 
 			// set the flash data error message if there is one
 			$this->data['message']   = (validation_errors()) ? validation_errors() :
-			$this->session->flashdata('error');
+			$this->session->flashdata('message');
 
 			$this->load->view('partials/_alte_header', $this->data);
 			$this->load->view('partials/_alte_menu');
@@ -113,14 +113,14 @@ class Categories extends CI_Controller {
 
 					// check to see if we are inserting the data
 					if ($this->categories_model->insert_category($data)) {
-						$this->session->set_flashdata('success',
+						$this->session->set_flashdata('message',
 							$this->config->item('success_start_delimiter', 'ion_auth')
 							."Category Saved Successfully!".
 							$this->config->item('success_end_delimiter', 'ion_auth')
 						);
 					}
 					else {
-						$this->session->set_flashdata('error',
+						$this->session->set_flashdata('message',
 							$this->config->item('error_start_delimiter', 'ion_auth')
 							."Category Saving Failed!".
 							$this->config->item('error_end_delimiter', 'ion_auth')
@@ -150,7 +150,7 @@ class Categories extends CI_Controller {
 
 			// set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() :
-			$this->session->flashdata('error');
+			$this->session->flashdata('message');
 
 			$this->load->view('partials/_alte_header', $this->data);
 			$this->load->view('partials/_alte_menu');
@@ -238,14 +238,14 @@ class Categories extends CI_Controller {
 
 					// check to see if we are updating the data
 					if ($this->categories_model->update_category($id, $data)) {
-						$this->session->set_flashdata('success',
+						$this->session->set_flashdata('message',
 							$this->config->item('success_start_delimiter', 'ion_auth')
 							."Category Updated!".
 							$this->config->item('success_end_delimiter', 'ion_auth')
 						);
 					}
 					else {
-						$this->session->set_flashdata('error',
+						$this->session->set_flashdata('message',
 							$this->config->item('error_start_delimiter', 'ion_auth')
 							."Category Update Failed!".
 							$this->config->item('error_end_delimiter', 'ion_auth')
@@ -260,7 +260,7 @@ class Categories extends CI_Controller {
 
 			// set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() :
-			$this->session->flashdata('error');
+			$this->session->flashdata('message');
 
 			$this->load->view('partials/_alte_header', $this->data);
 			$this->load->view('partials/_alte_menu');
@@ -293,7 +293,7 @@ class Categories extends CI_Controller {
 		{
 			// set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() :
-			$this->session->flashdata('error');
+			$this->session->flashdata('message');
 
 			// check if there's valid input
 			if (isset($_POST) && !empty($_POST)) {
@@ -309,14 +309,14 @@ class Categories extends CI_Controller {
 
 					// check to see if we are updating the data
 					if ($this->categories_model->update_category($id, $data)) {
-						$this->session->set_flashdata('success',
+						$this->session->set_flashdata('message',
 							$this->config->item('success_start_delimiter', 'ion_auth')
 							."Category Deleted!".
 							$this->config->item('success_end_delimiter', 'ion_auth')
 						);
 					}
 					else {
-						$this->session->set_flashdata('error',
+						$this->session->set_flashdata('message',
 							$this->config->item('error_start_delimiter', 'ion_auth')
 							."Category Delete Failed!".
 							$this->config->item('error_end_delimiter', 'ion_auth')

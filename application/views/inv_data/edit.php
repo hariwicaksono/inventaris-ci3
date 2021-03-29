@@ -28,7 +28,7 @@
 				</div>
 			</div>
 			<div class="box-body" id="edit_data">
-			<span style="color: red"><?php echo $message;?></span>
+        <?php echo $message;?>
         <?php foreach ($data_list->result() as $data){
           $curr_code             = $data->code;
           $curr_brand            = $data->brand;

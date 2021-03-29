@@ -67,7 +67,7 @@ class Color extends CI_Controller {
 
 			// set the flash data error message if there is one
 			$this->data['message']   = (validation_errors()) ? validation_errors() :
-			$this->session->flashdata('error');
+			$this->session->flashdata('message');
 
 			$this->load->view('partials/_alte_header', $this->data);
 			$this->load->view('partials/_alte_menu');
@@ -109,14 +109,14 @@ class Color extends CI_Controller {
 
 					// check to see if we are inserting the data
 					if ($this->color_model->insert_color($data)) {
-						$this->session->set_flashdata('success',
+						$this->session->set_flashdata('message',
 							$this->config->item('success_start_delimiter', 'ion_auth')
 							."Color Saved Successfully!".
 							$this->config->item('success_end_delimiter', 'ion_auth')
 						);
 					}
 					else {
-						$this->session->set_flashdata('error',
+						$this->session->set_flashdata('message',
 							$this->config->item('error_start_delimiter', 'ion_auth')
 							."Color Saving Failed!".
 							$this->config->item('error_end_delimiter', 'ion_auth')
@@ -146,7 +146,7 @@ class Color extends CI_Controller {
 
 			// set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() :
-			$this->session->flashdata('error');
+			$this->session->flashdata('message');
 
 			$this->load->view('partials/_alte_header', $this->data);
 			$this->load->view('partials/_alte_menu');
@@ -211,14 +211,14 @@ class Color extends CI_Controller {
 
 					// check to see if we are updating the data
 					if ($this->color_model->update_color($id, $data)) {
-						$this->session->set_flashdata('success',
+						$this->session->set_flashdata('message',
 							$this->config->item('success_start_delimiter', 'ion_auth')
 							."Color Updated!".
 							$this->config->item('success_end_delimiter', 'ion_auth')
 						);
 					}
 					else {
-						$this->session->set_flashdata('error',
+						$this->session->set_flashdata('message',
 							$this->config->item('error_start_delimiter', 'ion_auth')
 							."Color Update Failed!".
 							$this->config->item('error_end_delimiter', 'ion_auth')
@@ -230,7 +230,7 @@ class Color extends CI_Controller {
 
 			// set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() :
-			$this->session->flashdata('error');
+			$this->session->flashdata('message');
 
 			// Get data
 			$this->data['data_list'] = $this->color_model->get_color($id);
@@ -279,14 +279,14 @@ class Color extends CI_Controller {
 
 					// check to see if we are updating the data
 					if ($this->color_model->update_color($id, $data)) {
-						$this->session->set_flashdata('success',
+						$this->session->set_flashdata('message',
 							$this->config->item('success_start_delimiter', 'ion_auth')
 							."Color Deleted!".
 							$this->config->item('success_end_delimiter', 'ion_auth')
 						);
 					}
 					else {
-						$this->session->set_flashdata('error',
+						$this->session->set_flashdata('message',
 							$this->config->item('error_start_delimiter', 'ion_auth')
 							."Color Delete Failed!".
 							$this->config->item('error_end_delimiter', 'ion_auth')
@@ -296,7 +296,7 @@ class Color extends CI_Controller {
 			}
 			// set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() :
-			$this->session->flashdata('error');
+			$this->session->flashdata('message');
 
 			// Always redirect no matter what!
 			redirect('color', 'refresh');

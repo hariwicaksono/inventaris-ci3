@@ -6,7 +6,6 @@
 	<title><?php echo $this->config->item('site_name'); ?> | Log in</title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-	<link rel="shortcut icon" href="<?php echo base_url('assets/favicon.png'); ?>" type="image/x-icon"><!-- X -->
 	<!-- Bootstrap 3.3.6 -->
 	<link rel="stylesheet" href="<?php echo base_url('assets/templates/adminlte-2-3-11/bootstrap/css/bootstrap.min.css'); ?>">
 	<!-- Font Awesome -->
@@ -17,8 +16,6 @@
 	<link rel="stylesheet" href="<?php echo base_url('assets/templates/adminlte-2-3-11/dist/css/AdminLTE.min.css'); ?>">
 	<!-- iCheck -->
 	<link rel="stylesheet" href="<?php echo base_url('assets/templates/adminlte-2-3-11/plugins/iCheck/square/blue.css'); ?>">
-	<link rel="stylesheet" href="<?php echo base_url('/assets/plugins/sweetalert2/sweetalert2.min.css') ?>">
-	<script src="<?php echo base_url('/assets/plugins/sweetalert2/sweetalert2.all.min.js')?>"></script>
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,7 +32,7 @@
 	<!-- /.login-logo -->
 	<div class="login-box-body">
 		<p class="login-box-msg">Log in to start your session</p>
-		<?php //echo $message; ?>
+		<?php echo $message; ?>
 
 		<?php echo form_open("auth/login".$redirect_to, array('autocomplete' => 'off'));?>
 			<div class="form-group has-feedback">
@@ -84,25 +81,5 @@
 		});
 	});
 </script>
-<script>
-  const Toast = Swal.mixin({
-      toast: false,
-      //position: 'top',
-      showConfirmButton: true,
-      timer: 5000
-    });
-    <?php if ($message = $this->session->flashdata('success')) { ?>
-    Toast.fire({
-            icon: 'success',
-            title: '<?php echo $message ?>'
-          })
-    <?php } ?>
-    <?php if ($message = $this->session->flashdata('error')) { ?>
-    Toast.fire({
-            icon: 'error',
-            title: '<?php echo $message ?>'
-          })
-    <?php } ?>
-    </script>
 </body>
 </html>
