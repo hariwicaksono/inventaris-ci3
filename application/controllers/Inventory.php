@@ -892,7 +892,7 @@ class Inventory extends CI_Controller {
 				}
 			}
 			// Always redirect no matter what!
-			redirect('inventory', 'refresh');
+			redirect('inventory/all', 'refresh');
 		}
 	}
 	// Delete data end
